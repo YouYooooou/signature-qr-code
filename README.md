@@ -26,4 +26,8 @@
 - **H2 Database** (stockage en mémoire)  
 - **ZXing** (génération QR Code)  
 
-
+## 🛠Comment lancer le projet ?  
+```bash
+git clone https://github.com/votre-utilisateur/signature-qr-code.git
+cd signature-qr-code
+mvn spring-boot:run
