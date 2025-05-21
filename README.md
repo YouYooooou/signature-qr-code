@@ -13,12 +13,21 @@
 | `POST`  | `/documents/{uuid}/sign`    | Signe un document                   |
 | `GET`   | `/documents/{uuid}`         | Vérifie un document                 |
 
+## 🏗 Architecture des Classes
+| Classe/Rôle | Responsabilité | Mécanisme Clé |
+|-------------|----------------|---------------|
+| **`Document`** (Modèle) | Stocke les données du document | JPA/H2 - UUID généré automatiquement |
+| **`DocumentController`** | Gère les requêtes HTTP | Routes Spring - Valide les entrées |
+| **`DocumentService`** | Logique métier | Génère QR (ZXing), gère signatures/vérifications |
+| **`DocumentRepository`** | Accès base de données | JpaRepository - Sauvegarde/charge les documents |
+
 ## 🔧 Technologies  
-- **Spring Boot 3**  
-- **H2 Database** (pour le stockage)  
+- **Spring Boot 3** (API REST)  
+- **H2 Database** (stockage en mémoire)  
 - **ZXing** (génération QR Code)  
 
 ## 🛠️ Comment lancer le projet ?  
-1. Cloner le dépôt :  
-   ```bash
-   git clone https://github.com/votre-utilisateur/signature-qr-code.git
+```bash
+git clone https://github.com/votre-utilisateur/signature-qr-code.git
+cd signature-qr-code
+mvn spring-boot:run
